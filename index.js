@@ -16,15 +16,15 @@ const move = function () {
         alert('Game is over, reload the page to play a new game.');
         return;
     }
-    if (this.innerText === 'X' || this.innerText === 'O') {
+    if (this.innerHTML[15] === 'X' || this.innerHTML[15] === 'O') {
         return;
     }
     if (num % 2 === 0) {
-        this.innerText = 'X';
+        this.innerHTML = '<img class="d0 X" src="./imgs/cross.png" alt="x">';
         num++;
     }
     else {
-        this.innerText = 'O';
+        this.innerHTML = '<img class="d0 O" src="./imgs/o.png" alt="o">';
         num++;
     }
     checkWin();
@@ -36,14 +36,14 @@ boxes.forEach(function (e) {
 
 const checkWin = function () {
     let winConditions = [
-        { value: boxes[0].innerText + boxes[1].innerText + boxes[2].innerText, tiles: [0, 1, 2] },
-        { value: boxes[3].innerText + boxes[4].innerText + boxes[5].innerText, tiles: [3, 4, 5] },
-        { value: boxes[6].innerText + boxes[7].innerText + boxes[8].innerText, tiles: [6, 7, 8] },
-        { value: boxes[0].innerText + boxes[3].innerText + boxes[6].innerText, tiles: [0, 3, 6] },
-        { value: boxes[1].innerText + boxes[4].innerText + boxes[7].innerText, tiles: [1, 4, 7] },
-        { value: boxes[2].innerText + boxes[5].innerText + boxes[8].innerText, tiles: [2, 5, 8] },
-        { value: boxes[0].innerText + boxes[4].innerText + boxes[8].innerText, tiles: [0, 4, 8] },
-        { value: boxes[2].innerText + boxes[4].innerText + boxes[6].innerText, tiles: [2, 4, 6] }
+        { value: boxes[0].innerHTML[15] + boxes[1].innerHTML[15] + boxes[2].innerHTML[15], tiles: [0, 1, 2] },
+        { value: boxes[3].innerHTML[15] + boxes[4].innerHTML[15] + boxes[5].innerHTML[15], tiles: [3, 4, 5] },
+        { value: boxes[6].innerHTML[15] + boxes[7].innerHTML[15] + boxes[8].innerHTML[15], tiles: [6, 7, 8] },
+        { value: boxes[0].innerHTML[15] + boxes[3].innerHTML[15] + boxes[6].innerHTML[15], tiles: [0, 3, 6] },
+        { value: boxes[1].innerHTML[15] + boxes[4].innerHTML[15] + boxes[7].innerHTML[15], tiles: [1, 4, 7] },
+        { value: boxes[2].innerHTML[15] + boxes[5].innerHTML[15] + boxes[8].innerHTML[15], tiles: [2, 5, 8] },
+        { value: boxes[0].innerHTML[15] + boxes[4].innerHTML[15] + boxes[8].innerHTML[15], tiles: [0, 4, 8] },
+        { value: boxes[2].innerHTML[15] + boxes[4].innerHTML[15] + boxes[6].innerHTML[15], tiles: [2, 4, 6] }
     ];
     winConditions.forEach(function (e) {
         if (e.value === 'XXX') {
